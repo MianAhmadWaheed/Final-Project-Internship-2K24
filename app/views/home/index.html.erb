@@ -1,3 +1,4 @@
 <h1>Welcome to the E-commerce Site</h1>
-<%= link_to 'Sign Up', new_customer_registration_path, class: "btn btn-primary" %>
+<%= link_to 'Sign Up', new_customer_session_path, class: "btn btn-primary" %>
 <%= link_to 'Log In', new_customer_session_path, class: "btn btn-secondary" %>
+<%= link_to 'Log Out', destroy_customer_session_path, method: :delete, class: "btn btn-secondary" %>
