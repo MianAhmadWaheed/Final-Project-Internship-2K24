@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   #get 'home/index'
+  #devise_for :customers, controllers: { sessions: 'customers/sessions' }
+
   devise_for :customers
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   root 'home#index'
