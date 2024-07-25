@@ -10,9 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_07_24_180427) do
+ActiveRecord::Schema[7.1].define(version: 2024_07_23_115437) do
   create_table "categories", force: :cascade do |t|
-    t.string "name"
+    t.integer "name", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -33,14 +33,12 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_24_180427) do
   create_table "order_items", force: :cascade do |t|
     t.integer "order_id", null: false
     t.integer "product_id", null: false
-    t.integer "size_id", null: false
     t.integer "quantity"
     t.decimal "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["order_id"], name: "index_order_items_on_order_id"
     t.index ["product_id"], name: "index_order_items_on_product_id"
-    t.index ["size_id"], name: "index_order_items_on_size_id"
   end
 
   create_table "orders", force: :cascade do |t|
@@ -66,11 +64,10 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_24_180427) do
 
   create_table "product_sizes", force: :cascade do |t|
     t.integer "product_id", null: false
-    t.string "size"
+    t.integer "size_id", null: false
     t.integer "quantity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "size_id", null: false
     t.index ["product_id"], name: "index_product_sizes_on_product_id"
     t.index ["size_id"], name: "index_product_sizes_on_size_id"
   end
@@ -86,14 +83,13 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_24_180427) do
   end
 
   create_table "sizes", force: :cascade do |t|
-    t.string "size"
+    t.integer "size", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   add_foreign_key "order_items", "orders"
   add_foreign_key "order_items", "products"
-  add_foreign_key "order_items", "sizes"
   add_foreign_key "orders", "customers"
   add_foreign_key "orders", "payments"
   add_foreign_key "payments", "orders"
