@@ -1,0 +1,21 @@
+{
+  "name": "Ecommerce_app",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "desc",
+  "main": "app/javascript/application.js",
+  "repository": "https://github.com/MianAhmadWaheed/Final-Project-Internship-2K24.git",
+  "author": "ahmad",
+  "license": "MIT",
+  "dependencies": {
+    "bootstrap": "^5.3.3",
+    "jquery": "^3.7.1"
+  },
+  "devDependencies": {
+    "esbuild": "^0.23.0"
+  },
+  "scripts": {
+    "build": "node esbuild.config.js",
+    "build:watch": "node esbuild.config.js --watch"
+  }
+}

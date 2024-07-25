@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_07_23_115437) do
+ActiveRecord::Schema[7.1].define(version: 2024_07_24_180427) do
   create_table "categories", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -70,7 +70,9 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_23_115437) do
     t.integer "quantity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "size_id", null: false
     t.index ["product_id"], name: "index_product_sizes_on_product_id"
+    t.index ["size_id"], name: "index_product_sizes_on_size_id"
   end
 
   create_table "products", force: :cascade do |t|
@@ -84,11 +86,9 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_23_115437) do
   end
 
   create_table "sizes", force: :cascade do |t|
-    t.integer "product_id", null: false
     t.string "size"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["product_id"], name: "index_sizes_on_product_id"
   end
 
   add_foreign_key "order_items", "orders"
@@ -98,6 +98,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_23_115437) do
   add_foreign_key "orders", "payments"
   add_foreign_key "payments", "orders"
   add_foreign_key "product_sizes", "products"
+  add_foreign_key "product_sizes", "sizes"
   add_foreign_key "products", "categories"
-  add_foreign_key "sizes", "products"
 end
