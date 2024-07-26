@@ -1,0 +1,47 @@
+<nav class="navbar navbar-expand-lg" style="background-color: black; color: white; border-radius: auto;">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#" style="color: white;">DESIRES</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <%= link_to 'Home', root_path, class: "nav-link", style: "color: white; margin-right: 15px; text-decoration: none;" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'Admin', '#', class: "nav-link", style: "color: white; margin-right: 15px; text-decoration: none;" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'Customer', '#', class: "nav-link", style: "color: white; margin-right: 15px; text-decoration: none;" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'Products', '#', class: "nav-link", style: "color: white; margin-right: 15px; text-decoration: none;" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'Cart', '#', class: "nav-link", style: "color: white; margin-right: 15px; text-decoration: none;" %>
+        </li>
+
+        <!-- Authentication Links -->
+        <% if customer_signed_in? %>
+          <li class="nav-item">
+            <%= button_to 'Log Out', destroy_customer_session_path, method: :delete, class: "btn", style: "color: white; background-color: #dc3545; border: none; border-radius: 4px; padding: 5px 15px; margin-left: 15px; text-decoration: none; cursor: pointer;" %>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <%= link_to 'Sign Up', new_customer_registration_path, class: "nav-link", style: "color: white; margin-right: 15px; text-decoration: none;" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to 'Log In', new_customer_session_path, class: "nav-link", style: "color: white; text-decoration: none;" %>
+          </li>
+        <% end %>
+      </ul>
+
+      <!-- Search Form -->
+      <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>

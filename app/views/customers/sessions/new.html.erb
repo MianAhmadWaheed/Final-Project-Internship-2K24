@@ -10,12 +10,12 @@
   background-color: #e9ecef; /* Darker background color */
 ">
 
-  <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "needs-validation", novalidate: true }) do |f| %>
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "needs-validation", novalidate: true, method: :post }) do |f| %>
     <div class="form-group" style="margin-bottom: 15px;">
       <%= f.label :username, style: "display: block; margin-bottom: 5px;" %>
       <%= f.text_field :username, autofocus: true, class: "form-control", required: true, style: "padding: 10px; border-radius: 4px; border: 1px solid #ced4da;" %>
       <div class="invalid-feedback" style="color: #dc3545;">
-        Please provide a valid username.
+        Please provide a valid email.
       </div>
     </div>
 
