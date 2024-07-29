@@ -70,3 +70,9 @@ end
 gem "devise", "~> 4.9"
 gem "bootstrap"
 gem "sassc-rails"
+
+gem 'activeadmin'
+# Plus integrations with:
+gem 'cancancan'
+gem 'draper'
+gem 'pundit'

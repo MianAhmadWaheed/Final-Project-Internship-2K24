@@ -9,11 +9,4 @@ class Customer < ApplicationRecord
   validates :email, presence: true, uniqueness: true
 
   has_many :orders
-
-  #Override Devise's method to use `username` instead of `email`
-  def self.find_for_database_authentication(warden_conditions)
-    conditions = warden_conditions.dup
-    username = conditions.delete(:username)
-    where(conditions).where(["username = :value", { value: username }]).first
-  end
 end

@@ -1,6 +1,6 @@
-<nav class="navbar navbar-expand-lg" style="background-color: black; color: white; border-radius: auto;">
+<nav class="navbar navbar-expand-lg" style="background-color: #0e1e2e; color: white; border-radius: auto;">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#" style="color: white;">DESIRES</a>
+    <a class="navbar-brand" href="https://mianahmadwaheed.github.io/#" style="color: white;">DESIRES</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -10,7 +10,7 @@
           <%= link_to 'Home', root_path, class: "nav-link", style: "color: white; margin-right: 15px; text-decoration: none;" %>
         </li>
         <li class="nav-item">
-          <%= link_to 'Admin', '#', class: "nav-link", style: "color: white; margin-right: 15px; text-decoration: none;" %>
+          <%= link_to 'Admin', new_admin_user_session_path, class: "nav-link", style: "color: white; margin-right: 15px; text-decoration: none;" %>
         </li>
         <li class="nav-item">
           <%= link_to 'Customer', '#', class: "nav-link", style: "color: white; margin-right: 15px; text-decoration: none;" %>
@@ -18,30 +18,31 @@
         <li class="nav-item">
           <%= link_to 'Products', '#', class: "nav-link", style: "color: white; margin-right: 15px; text-decoration: none;" %>
         </li>
-        <li class="nav-item">
-          <%= link_to 'Cart', '#', class: "nav-link", style: "color: white; margin-right: 15px; text-decoration: none;" %>
-        </li>
-
-        <!-- Authentication Links -->
-        <% if customer_signed_in? %>
-          <li class="nav-item">
-            <%= button_to 'Log Out', destroy_customer_session_path, method: :delete, class: "btn", style: "color: white; background-color: #dc3545; border: none; border-radius: 4px; padding: 5px 15px; margin-left: 15px; text-decoration: none; cursor: pointer;" %>
-          </li>
-        <% else %>
-          <li class="nav-item">
-            <%= link_to 'Sign Up', new_customer_registration_path, class: "nav-link", style: "color: white; margin-right: 15px; text-decoration: none;" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to 'Log In', new_customer_session_path, class: "nav-link", style: "color: white; text-decoration: none;" %>
-          </li>
-        <% end %>
       </ul>
 
       <!-- Search Form -->
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
+     <form class="d-flex align-items-center search-form" role="search">
+       <input class="form-control me-2 rounded-pill" type="search" placeholder="Search" aria-label="Search">
+       <button class="btn btn-outline-primary rounded-pill" type="submit">Search</button>
       </form>
+      
+      <% if customer_signed_in? %>
+      <div class="nav-item dropdown ms-3">
+        <a class="nav-link dropdown-toggle text-light d-flex align-items-center" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <img src="https://github.com/mdo.png" alt="" width="32" height="32"
+                            class="rounded-circle me-2" />
+          <%= current_customer.email %>
+        </a>
+        <ul class="dropdown-menu dropdown-menu-end">
+          <li><a class="dropdown-item" href="#">Change Password</a></li>
+          <li><a class="dropdown-item" href="#">Delete Account</a></li>
+          <hr><%= button_to "Sign Out", destroy_customer_session_path, class: "btn", method: :delete %></li>
+        </ul>
+      </div>
+       
+        
+      <% end %>
+
     </div>
   </div>
 </nav>
