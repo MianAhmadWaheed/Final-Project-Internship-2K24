@@ -44,6 +44,24 @@
       color: #007bff;
       font-weight: bold;
     }
+    .products {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .product {
+      border: 1px solid #ddd;
+      padding: 16px;
+      margin: 16px;
+      border-radius: 8px;
+      width: calc(33.333% - 32px);
+    }
+
+    .product h2 {
+      font-size: 1.5em;
+      margin-top: 0;
+    }
+
   </style>
 </head>
 <body>
@@ -53,7 +71,7 @@
       <p>Your one-stop shop for the latest fashion trends!</p>
     </div>
 
-    <div class="options">
+    <%# <div class="options">
       <div>
         <h2><a href="#">Admin</a></h2>
         <p>Manage the store, view reports, and handle inventory.</p>
@@ -70,7 +88,18 @@
         <h2><a href="#">Cart</a></h2>
         <p>View items in your cart and proceed to checkout.</p>
       </div>
-    </div>
+    </div> %>
+      <h1>Products</h1>
+      <div class="products">
+        <% @products.each do |product| %>
+          <div class="product">
+            <h2><%= product.name %></h2>
+            <p><%= product.description %></p>
+            <p>Price: $<%= product.price %></p>
+            <p>Category: <%= product.category.name %></p>
+          </div>
+        <% end %>
+      </div>
   </div>
 </body>
 </html>

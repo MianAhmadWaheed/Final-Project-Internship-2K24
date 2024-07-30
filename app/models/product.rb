@@ -4,6 +4,7 @@ class Product < ApplicationRecord
   has_many :sizes, through: :product_sizes
   has_many :product_sizes, dependent: :destroy
 
+  accepts_nested_attributes_for :product_sizes, allow_destroy: true
 
   def self.ransackable_attributes(auth_object = nil)
     ["category_id", "created_at", "description", "id", "id_value", "name", "price", "updated_at"]
