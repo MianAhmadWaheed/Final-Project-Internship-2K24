@@ -32,4 +32,8 @@
 /public/assets
 
 # Ignore master key for decrypting credentials and more.
+/esbuild.config.js
 /config/master.key
+/test/*
+/node_modules/*
+/.byebug_history

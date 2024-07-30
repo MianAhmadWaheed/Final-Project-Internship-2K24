@@ -1,0 +1,51 @@
+<h2 style="text-align: center; margin-bottom: 20px;">Sign up</h2>
+<div class="devise-container" style="
+  max-width: 500px; 
+  margin: 0 auto; 
+  padding: 20px; 
+  border: 1px solid #ddd; 
+  border-radius: 8px; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+  background-color: #e9ecef; /* Darker background color */
+">
+
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: "needs-validation", novalidate: true }) do |f| %>
+    <div class="form-group" style="margin-bottom: 15px;">
+      <%= f.label :username, style: "display: block; margin-bottom: 5px;" %>
+      <%= f.text_field :username, autofocus: true, class: "form-control", required: true, style: "padding: 10px; border-radius: 4px; border: 1px solid #ced4da;" %>
+      <div class="invalid-feedback" style="color: #dc3545;">
+        Please provide a valid username.
+      </div>
+    </div>
+
+    <div class="form-group" style="margin-bottom: 15px;">
+      <%= f.label :email, style: "display: block; margin-bottom: 5px;" %>
+      <%= f.email_field :email, class: "form-control", required: true, style: "padding: 10px; border-radius: 4px; border: 1px solid #ced4da;" %>
+      <div class="invalid-feedback" style="color: #dc3545;">
+        Please provide a valid email address.
+      </div>
+    </div>
+
+    <div class="form-group" style="margin-bottom: 15px;">
+      <%= f.label :password, style: "display: block; margin-bottom: 5px;" %>
+      <%= f.password_field :password, autocomplete: "new-password", class: "form-control", required: true, style: "padding: 10px; border-radius: 4px; border: 1px solid #ced4da;" %>
+      <div class="invalid-feedback" style="color: #dc3545;">
+        Please provide a password.
+      </div>
+    </div>
+
+    <div class="form-group" style="margin-bottom: 15px;">
+      <%= f.label :password_confirmation, style: "display: block; margin-bottom: 5px;" %>
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control", required: true, style: "padding: 10px; border-radius: 4px; border: 1px solid #ced4da;" %>
+      <div class="invalid-feedback" style="color: #dc3545;">
+        Please confirm your password.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.submit "Sign up", class: "btn btn-primary", style: "width: 100%; padding: 10px; border-radius: 4px; border: none; background-color: #007bff; color: white;" %>
+    </div>
+  <% end %>
+
+  <%= render "devise/shared/links" %>
+</div>
