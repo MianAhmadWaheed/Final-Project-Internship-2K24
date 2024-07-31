@@ -13,7 +13,7 @@
   <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "needs-validation", novalidate: true, method: :post }) do |f| %>
     <div class="form-group" style="margin-bottom: 15px;">
       <%= f.label :email, style: "display: block; margin-bottom: 5px;" %>
-      <%= f.email_field :email, autofocus: true, class: "form-control", required: true, style: "padding: 10px; border-radius: 4px; border: 1px solid #ced4da;" %>
+      <%= f.email_field :email, autofocus: true, class: "form-control", required: true, style: "padding: 10px; border-radius: 4px; border: 1px solid #ced4da; width: 365px;" %>
       <div class="invalid-feedback" style="color: #dc3545;">
         Please provide a valid email.
       </div>
@@ -21,7 +21,7 @@
 
     <div class="form-group" style="margin-bottom: 15px;">
       <%= f.label :password, style: "display: block; margin-bottom: 5px;" %>
-      <%= f.password_field :password, autocomplete: "current-password", class: "form-control", required: true, style: "padding: 10px; border-radius: 4px; border: 1px solid #ced4da;" %>
+      <%= f.password_field :password, autocomplete: "current-password", class: "form-control", required: true, style: "padding: 10px; border-radius: 4px; border: 1px solid #ced4da; width: 365px;" %>
       <div class="invalid-feedback" style="color: #dc3545;">
         Please provide a password.
       </div>

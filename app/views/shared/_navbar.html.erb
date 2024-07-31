@@ -7,7 +7,6 @@
     </button>
     
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
           <%= link_to 'Home', root_path, class: "nav-link", style: "color: white; margin-right: 15px; text-decoration: none;" %>
@@ -23,10 +22,10 @@
         </li>
       </ul>
 
-     <form class="d-flex align-items-center search-form" role="search">
-       <input class="form-control me-2 rounded-pill" type="search" placeholder="Search" aria-label="Search">
-       <button class="btn btn-outline-primary rounded-pill" type="submit">Search</button>
-     </form>
+      <form class="d-flex align-items-center search-form" role="search">
+        <input class="form-control me-2 rounded-pill" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-primary rounded-pill" type="submit">Search</button>
+      </form>
       
       <% if customer_signed_in? %>
         <div class="nav-item dropdown ms-3">
