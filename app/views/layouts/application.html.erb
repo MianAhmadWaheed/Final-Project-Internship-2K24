@@ -5,29 +5,37 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbo-track': 'reload' %>
-    <% javascript_include_tag 'application', 'data-turbo-track': 'reload' %>
-     <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-image: url('/assets/bg.jpg');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      background-attachment: fixed;
-    }
-    /* Additional styles for your page */
-  </style>
+    <%= javascript_include_tag 'application', 'data-turbo-track': 'reload' %>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-image: url('/assets/bg.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+      }
+      .content {
+        flex: 1;
+      }
+      /* Additional styles for your page */
+    </style>
   </head>
   <body>
-     <%= render 'shared/navbar'%> 
-     <%= render 'shared/alertmessages'%> 
-    <%= yield %>
-     <!-- Footer -->
+    <div class="content">
+      <%= render 'shared/navbar'%>
+      <%= render 'shared/alertmessages'%>
+      <%= yield %>
+    </div>
+    <!-- Footer -->
     <footer class="footer bg-dark text-light py-1">
       <div class="container text-center">
-        <span class="text-muted">© 2024 Clothing App</span>
+        <span class="text-light">© 2024 Clothing App</span>
         <div class="mt-1">
           <a href="#" class="text-light">Privacy Policy</a> | 
           <a href="#" class="text-light">Terms of Service</a>
