@@ -11,7 +11,7 @@
         font-family: Arial, sans-serif;
         margin: 0;
         padding: 0;
-        background-image: url('/assets/bg.jpg');
+        /* background-image: url('/assets/bg.jpg'); */
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
@@ -23,7 +23,6 @@
       .content {
         flex: 1;
       }
-      /* Additional styles for your page */
     </style>
   </head>
   <body>
@@ -33,12 +32,12 @@
       <%= yield %>
     </div>
     <!-- Footer -->
-    <footer class="footer bg-dark text-light py-1">
+    <footer class="footer bg-light text-dark py-1">
       <div class="container text-center">
-        <span class="text-light">© 2024 Clothing App</span>
+        <span class="text-dark">© 2024 Clothing App</span>
         <div class="mt-1">
-          <a href="#" class="text-light">Privacy Policy</a> | 
-          <a href="#" class="text-light">Terms of Service</a>
+          <a href="#" class="text-dark">Privacy Policy</a> | 
+          <a href="#" class="text-dark">Terms of Service</a>
         </div>
       </div>
     </footer>
