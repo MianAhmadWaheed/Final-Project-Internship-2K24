@@ -1,5 +1,5 @@
 class ProductSize < ApplicationRecord
-  include RansackableAttributes
+  include Ransackable
   belongs_to :product
   belongs_to :size
 end

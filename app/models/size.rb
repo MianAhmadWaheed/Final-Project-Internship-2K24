@@ -1,5 +1,5 @@
 class Size < ApplicationRecord
-  include RansackableAttributes
+  include Ransackable
   has_many :products, through: :product_sizes
   has_many :product_sizes
   enum size: { small: 0, medium: 1, large: 2 }

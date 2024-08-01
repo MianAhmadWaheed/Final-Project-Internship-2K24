@@ -1,81 +1,9 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title><%= @product.name %></title>
-  <%= csrf_meta_tags %>
-  <%= csp_meta_tag %>
-  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbo-track': 'reload' %>
-  <%= javascript_include_tag 'application', 'data-turbo-track': 'reload' %>
-  <style>
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #f0f4f8;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      overflow: hidden;
-    }
-    .container {
-      background-color: #ffffff;
-      border-radius: 12px;
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-      padding: 20px;
-      width: 90%;
-      max-width: 350px;
-      max-height: 80vh;
-      text-align: center;
-      overflow-y: auto;
-    }
-    h1 {
-      color: #333;
-      font-size: 1.6em;
-      margin-bottom: 15px;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-    }
-    .product-detail img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 8px;
-      margin-bottom: 15px;
-    }
-    .product-detail p {
-      margin: 8px 0;
-      color: #555;
-      font-size: 1em;
-    }
-    .return-home {
-      display: inline-block;
-      margin-top: 20px;
-      padding: 12px 24px;
-      font-size: 16px;
-      color: #ffffff;
-      background-color: #28a745;
-      text-decoration: none;
-      border-radius: 6px;
-      transition: background-color 0.3s ease, transform 0.3s ease;
-    }
-    .return-home:hover {
-      background-color: #218838;
-      transform: scale(1.05);
-    }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <h1><%= @product.name %></h1>
-    <div class="product-detail">
-      <% if @product.image.attached? %>
-        <%= image_tag @product.image, size: "350x350" %>
-      <% end %>
-      <p><strong>Price:</strong> <%= @product.price %></p>
-      <p><strong>Description:</strong> <%= @product.description %></p>
-      <a class="return-home" href="<%= root_path %>">Return to Home</a>
-    </div>
-  </div>
-</body>
-</html>
+<h1><%= @product.name %></h1>
+<div class="product-detail">
+  <% if @product.image.attached? %>
+    <%= image_tag @product.image, size: "400x400" %>
+  <% end %>
+  <p><strong>Price:</strong> <%= @product.price %></p>
+  <p><strong>Description:</strong> <%= @product.description %></p>
+  <a class="return-home" href="<%= root_path %>">Return to Home</a>
+</div>

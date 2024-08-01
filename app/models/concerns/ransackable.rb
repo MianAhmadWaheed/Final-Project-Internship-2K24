@@ -1,4 +1,4 @@
-module RansackableAttributes
+module Ransackable
   extend ActiveSupport::Concern
 
   class_methods do
@@ -7,7 +7,7 @@ module RansackableAttributes
     end
 
     def ransackable_associations(auth_object = nil)
-      column_names
+      reflect_on_all_associations.map(&:name).map(&:to_s)
     end
   end
 end
