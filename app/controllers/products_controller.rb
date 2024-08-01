@@ -1,4 +1,3 @@
-# app/controllers/products_controller.rb
 class ProductsController < ApplicationController
   def search
     @q = Product.ransack(params[:q])
