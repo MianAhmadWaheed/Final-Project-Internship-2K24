@@ -1,0 +1,15 @@
+<!-- app/views/products/search.html.erb -->
+<h1>Search Results</h1>
+
+<div class="products">
+  <% @products.each do |product| %>
+    <div class="product">
+      <% if product.image.attached? %>
+        <%= image_tag product.image, size: "200x200" %>
+      <% end %>
+      <h2><%= link_to product.name, product_path(product) %></h2>
+      <p><strong>Price:</strong> <%= product.price %></p>
+      <p><strong>Description:</strong> <%= product.description %></p>
+    </div>
+  <% end %>
+</div>

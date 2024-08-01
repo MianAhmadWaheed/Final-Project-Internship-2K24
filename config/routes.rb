@@ -10,5 +10,8 @@ Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   root 'home#index'
   resources :categories, only: [:index, :show]
+
+  get 'search', to: 'products#search', as: 'search_products'
+  resources :products, only: [:show]
   # root "posts#index"
 end

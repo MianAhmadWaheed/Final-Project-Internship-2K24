@@ -1,0 +1,11 @@
+<!-- app/views/products/show.html.erb -->
+<h1><%= @product.name %></h1>
+<div class="product-detail">
+  <% if @product.image.attached? %>
+    <%= image_tag @product.image, size: "400x400" %>
+  <% end %>
+  <p><strong>Price:</strong> <%= @product.price %></p>
+  <p><strong>Description:</strong> <%= @product.description %></p>
+  <a class="return-home" href="<%= root_path %>">Return to Home</a>
+  <!-- Include any additional details like size here -->
+</div>
