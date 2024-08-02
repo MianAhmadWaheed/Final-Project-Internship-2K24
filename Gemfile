@@ -78,3 +78,4 @@ gem 'draper'
 gem 'pundit'
 # Gemfile
 gem 'ransack'
+gem 'pagy'
