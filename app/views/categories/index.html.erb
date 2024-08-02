@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Categories</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f0f2f5;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+
+      h1 {
+        text-align: center;
+        color: #333;
+        margin-bottom: 30px;
+        font-size: 2.5em;
+      }
+
+      .categories {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+      }
+
+      .category {
+        flex: 1 1 calc(33.333% - 20px); /* 3 items per row with gap */
+        border: 1px solid #ddd;
+        padding: 20px;
+        margin: 10px;
+        border-radius: 12px;
+        text-align: center;
+        background-color: #ffffff;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .category:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      }
+
+      .category h2 {
+        font-size: 1.8em;
+        color: #333;
+        margin-bottom: 15px;
+      }
+
+      .category.all {
+        background-color: #007bff; /* Blue for All */
+        color: #ffffff;
+      }
+
+      .category.male {
+        background-color: #17a2b8; /* Teal for Male */
+        color: #ffffff;
+      }
+
+      .category.female {
+        background-color: #e83e8c; /* Pink for Female */
+        color: #ffffff;
+      }
+
+      .category a {
+        text-decoration: none;
+        color: #ffffff;
+        font-weight: bold;
+        display: inline-block;
+        padding: 10px 20px;
+        border-radius: 8px;
+        background-color: transparent;
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+
+      .category a:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>Categories</h1>
+      <div class="categories">
+        <div class="category all">
+          <h2><%= link_to 'All', root_path %></h2>
+        </div>
+        
+        <% @categories.each do |category| %>
+          <div class="category <%= category.name.downcase %>">
+            <h2><%= link_to category.name, category_path(category) %></h2>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </body>
+</html>
