@@ -79,6 +79,7 @@
       }
     </style>
   </head>
+
   <body>
     <div class="container">
       <h1>New Arrivals</h1>
@@ -88,12 +89,13 @@
             <% if product.image.attached? %>
               <%= image_tag product.image, size: "200x200" %>
             <% end %>
+
             <h2><%= product.name %></h2>
             <button class="select-item">Select Item</button>
           </div>
         <% end %>
       </div>
-      
+
       <div class="pag-bar pt-3 d-flex justify-content-center">
         <%== pagy_bootstrap_nav(@pagy) %>
       </div>

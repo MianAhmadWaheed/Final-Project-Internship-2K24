@@ -81,6 +81,7 @@
       }
     </style>
   </head>
+
   <body>
     <div class="container">
       <h1><%= @category.name %> Products</h1>
@@ -90,6 +91,7 @@
             <% if product.image.attached? %>
               <%= image_tag product.image, size: "200x200" %>
             <% end %>
+
             <h2><%= product.name %></h2>
             <button class="select-item">Select Item</button>
           </div>
