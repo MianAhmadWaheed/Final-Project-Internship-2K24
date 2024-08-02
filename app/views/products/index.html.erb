@@ -1,98 +1,102 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Home</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f4f4f4;
-      margin: 0;
-      padding: 0;
-    }
+  <head>
+    <title>Home</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+      }
 
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 20px;
-      background-color: #fff;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      border-radius: 8px;
-    }
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #fff;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+      }
 
-    h1 {
-      text-align: center;
-      color: #333;
-      margin-bottom: 20px;
-      font-size: 2em;
-    }
+      h1 {
+        text-align: center;
+        color: #333;
+        margin-bottom: 20px;
+        font-size: 2em;
+      }
 
-    .products {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 16px; 
-    }
+      .products {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px; 
+      }
 
-    .product {
-      border: 1px solid #ddd;
-      padding: 16px;
-      border-radius: 8px;
-      flex: 1 1 calc(25% - 32px); 
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      text-align: center;
-      margin-bottom: 16px;
-      background-color: #fff;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
+      .product {
+        border: 1px solid #ddd;
+        padding: 16px;
+        border-radius: 8px;
+        flex: 1 1 calc(25% - 32px); 
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        margin-bottom: 16px;
+        background-color: #fff;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
 
-    .product:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    }
+      .product:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      }
 
-    .product img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 8px;
-    }
+      .product img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+      }
 
-    .product h2 {
-      font-size: 1.5em;
-      margin: 10px 0;
-      color: #333;
-    }
+      .product h2 {
+        font-size: 1.5em;
+        margin: 10px 0;
+        color: #333;
+      }
 
-    .select-item {
-      background-color: #28a745; 
-      color: #fff;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 5px;
-      cursor: pointer;
-      font-size: 1em;
-      text-transform: uppercase;
-      transition: background-color 0.3s ease, transform 0.3s ease;
-    }
+      .select-item {
+        background-color: #28a745; 
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 1em;
+        text-transform: uppercase;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+      }
 
-    .select-item:hover {
-      background-color: #218838;
-      transform: scale(1.05);
-    }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <h1>New Arrivals</h1>
-    <div class="products">
-      <% @products.each do |product| %>
-        <div class="product">
-          <% if product.image.attached? %>
-            <%= image_tag product.image, size: "200x200" %>
-          <% end %>
-          <h2><%= product.name %></h2>
-          <button class="select-item">Select Item</button>
-        </div>
-      <% end %>
+      .select-item:hover {
+        background-color: #218838;
+        transform: scale(1.05);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>New Arrivals</h1>
+      <div class="products">
+        <% @products.each do |product| %>
+          <div class="product">
+            <% if product.image.attached? %>
+              <%= image_tag product.image, size: "200x200" %>
+            <% end %>
+            <h2><%= product.name %></h2>
+            <button class="select-item">Select Item</button>
+          </div>
+        <% end %>
+      </div>
+      
+      <div class="pag-bar pt-3 d-flex justify-content-center">
+        <%== pagy_bootstrap_nav(@pagy) %>
+      </div>
     </div>
-  </div>
-</body>
+  </body>
 </html>
